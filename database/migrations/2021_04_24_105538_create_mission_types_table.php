@@ -15,7 +15,7 @@ class CreateMissionTypesTable extends Migration
     {
         Schema::create('mission_types', function (Blueprint $table) {
             $table->id();
-            $table->mediumtText('descr');
+            $table->mediumText('descr');
             $table->foreignId('creator_id')->constrained('users');
             $table->timestamps();
         });
