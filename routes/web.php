@@ -15,6 +15,7 @@ Route::get('/', function () {
     return redirect('/login');
 });
 Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/home/create', [App\Http\Controllers\HomeController::class,'create'])->name('create_pcr');
 Route::get('uh_kit','uhkit_admin@index')->name('uh_kit-index');
