@@ -22,16 +22,18 @@
     <table class="table table-bordered table-responsive-lg">
         <tr>
             
-            <th>id</th>
-            <th>description</th>
-           
+            <th>login name</th>
+            <th>email</th>
+            <th>password</th>
+            <th>Admin</th>
             
         </tr>
-        @foreach ($uhkits as $uhkit)
+        @foreach ($users as $user)
             <tr>
-                <td></td>
-                <td></td>
-                
+                <td>{{$user->login_name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->password}}</td>
+                <td>{{$user->is_admin}}</td>
                 
                 <td>
                     <form action="" method="POST">
@@ -56,6 +58,6 @@
         @endforeach
     </table>
 
-    {!! $uhkit->links() !!}
+    {!! $users->links() !!}
 
 @endsection

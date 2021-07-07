@@ -1,9 +1,9 @@
 @extends('newhome.main');
-      <body>
+<meta name="csrf-token" content="{{ csrf_token() }}">      
+<body>
     <div class="main">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <div class="container">
-            <form method="post" action="{{ route('create_pcr') }}" enctype="multipart/form-data" name="everything" id="everything">
+          <div class="container">
+            <form method="post" class="signup-form" action="{{ route('create_pcr') }}" enctype="multipart/form-data" name="everything" id="everything">
                 @csrf
                 
                 <div>
@@ -19,12 +19,13 @@
                                         <input type="text" name="name" id="first_name" />
                                         <span class="text-input">First</span>
                                     </div>
-                                   </div>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="Age" class="form-label">Nationality</label>
                                 <input type="text" name="nationality" id="nationality" />
-                            </div><div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="Age" class="form-label">Age</label>
                                 <input type="text" name="age" id="age" />
                             </div>
@@ -54,7 +55,7 @@
                         <h2>Personal information</h2>
                         <p class="desc">Please enter your infomation and proceed to next step so we can create your patient Care Report</p>
                         <div class="fieldset-content">
-                            <div class="form-row">
+                            <div class="form-group">
                                 <label class="form-label">Ambulance Number</label>
                                 <div class="form-flex">
                                     <div class="form-group">
@@ -194,7 +195,7 @@
                                                   @endforeach
                                             </select>
                         
-                                    </div>
+                                    
                     </fieldset>
                                    <button type="submit" name="submit" id="submit" class="btn-primary">Create</button>   
                                     <script type="text/javascript">
@@ -228,15 +229,11 @@
                                           });
                                         });
                                         </script>                    
-                        
+                        </div>
                 
 
             </form>
-            <a style="color:black;width:200px;position: absolute;left:200px;" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
-            </a>
+            <a href="{{ url('logout') }}">Logout</a>
            
         </div>
 
